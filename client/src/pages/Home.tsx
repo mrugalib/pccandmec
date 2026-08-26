@@ -193,11 +193,29 @@ const helpOptions = [
 
 
 const faqs = [
-  "What is your NGO’s mission?",
-  "How are donations used?",
-  "Can I volunteer?",
-  "Besides donating, how else can I help?",
-  "Can I sponsor a child or family?",
+  {
+    question: "What is your NGO’s mission?",
+    answer:
+      "PCC & MEC exists to support climate-affected coastal and Haor communities across Bangladesh — through disaster response, livelihoods, health, and education programmes shaped with the people we serve.",
+  },
+  {
+    question: "How are donations used?",
+    answer:
+      "Every contribution is channeled directly into active field programmes — relief, livelihoods, health, and education — with no funds diverted beyond what keeps our teams operating on the ground.",
+  },
+  {
+    question: "Can I volunteer?",
+    answer:
+      "Yes. Reach out through the contact details in our footer and our team will match you with a current field programme that fits your skills and availability.",
+  },
+  {
+    question: "Besides donating, how else can I help?",
+    answer: "You can share our work, partner with us as an organisation, or contribute in-kind resources like supplies, logistics, or professional expertise.",
+  },
+  {
+    question: "Can I sponsor a child or family?",
+    answer: "Yes — get in touch with our team to learn about current sponsorship opportunities within our education and livelihood programmes.",
+  },
 ];
 
 function ButtonLink({
@@ -233,7 +251,7 @@ export default function Home() {
 
   function subscribe(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setMessage(`Thank you${newsletterEmail ? `, ${newsletterEmail}` : ""}. You’re on the list for Careon updates.`);
+    setMessage(`Thank you${newsletterEmail ? `, ${newsletterEmail}` : ""}. You’re on the list for PCC & MEC updates.`);
     setNewsletterEmail("");
   }
 
@@ -394,7 +412,7 @@ export default function Home() {
             <p>Our efforts provide care, skills, and support igniting hope and lasting impact in the lives.</p>
           </div>
           <div className="shell program-layout">
-            <div className="program-tabs" role="tablist" aria-label="Careon programs">
+            <div className="program-tabs" role="tablist" aria-label="PCC & MEC programs">
               {programs.map((item, index) => <button type="button" key={item.title} role="tab" aria-selected={activeProgram === index} className={activeProgram === index ? "is-active" : ""} onClick={() => setActiveProgram(index)}><span>0{index + 1}</span>{item.title}</button>)}
             </div>
             <article className="program-detail" role="tabpanel">
@@ -434,7 +452,7 @@ export default function Home() {
           <div className="shell faq__grid">
             <div><Eyebrow>FAQ</Eyebrow><h2 id="faq-title">What You’re Thinking, We’ve Answered.</h2><p>Find helpful answers to common questions about donating, volunteering &amp; fundraising.</p></div>
             <div className="faq-list">
-              {faqs.map((question, index) => <article key={question} className={activeFaq === index ? "faq-row is-open" : "faq-row"}><button type="button" aria-expanded={activeFaq === index} onClick={() => setActiveFaq((active) => active === index ? null : index)}><span>{question}</span>{activeFaq === index ? <Minus size={19} /> : <Plus size={19} />}</button>{activeFaq === index && <p>Careon channels each contribution toward practical, accountable programmes shaped with community partners.</p>}</article>)}
+              {faqs.map(({ question, answer }, index) => <article key={question} className={activeFaq === index ? "faq-row is-open" : "faq-row"}><button type="button" aria-expanded={activeFaq === index} onClick={() => setActiveFaq((active) => active === index ? null : index)}><span>{question}</span>{activeFaq === index ? <Minus size={19} /> : <Plus size={19} />}</button>{activeFaq === index && <p>{answer}</p>}</article>)}
             </div>
           </div>
         </section>
@@ -448,8 +466,8 @@ export default function Home() {
 
       <footer id="contact" className="site-footer">
         <div className="shell newsletter"><div><Eyebrow light>Newsletter</Eyebrow><h2>Be the first to hear how you&apos;re making a difference.</h2></div><form onSubmit={subscribe}><label htmlFor="newsletter-email">Sign up for our newsletter and never miss an update.</label><div><input id="newsletter-email" required type="email" value={newsletterEmail} onChange={(event) => setNewsletterEmail(event.target.value)} placeholder="name@email.com" /><button aria-label="Subscribe" type="submit"><ArrowRight size={19} /></button></div>{message && <p className="form-message" role="status">{message}</p>}</form></div>
-        <div className="shell footer-grid"><div className="footer-brand"><a className="brand" href="#top"><img src={sourceImages.mark} alt="" /><strong>PCC &amp; MEC</strong></a><p>We are a non-profit organisation in Bangladesh that works towards supporting underprivileged children reach their full potential – physical, mental as well as emotional.</p><div className="footer-brand__social"><a href="#contact" aria-label="Share"><Share2 size={15} /></a><a href="#contact" aria-label="Visit our website"><Globe size={15} /></a></div></div><div><h3>Navigation</h3><a href="#top">Home</a><a href="#about">About</a><a href="#causes">Causes</a><a href="#donate">Donate</a></div><div><h3>Other Links</h3><a href="#programs">Programs</a><a href="#blog">Blogs</a><a href="#faq-title">Privacy policy</a><a href="#faq-title">Terms and Conditions</a></div><div><h3>Social Connect</h3><a href="#contact"><Linkedin size={15} /> Linkedin</a><a href="#contact"><Instagram size={15} /> Instagram</a><a href="#contact"><X size={15} /> X</a></div><div><h3>Contact us</h3><a href="tel:+919730627087"><Phone size={15} /> +91 9730627087</a><a href="mailto:Careon.foundation@gmail.com"><Mail size={15} /> Careon.foundation@gmail.com</a><p><MapPin size={15} /> House 14, Road 2, Sonadanga, Khulna 9100, Bangladesh</p></div></div>
-        <div className="shell footer-bottom"><p>© 2026 Careon. All rights reserved.</p></div>
+        <div className="shell footer-grid"><div className="footer-brand"><a className="brand" href="#top"><img src={sourceImages.mark} alt="" /><strong>PCC &amp; MEC</strong></a><p>We are a non-profit organisation in Bangladesh that works towards supporting underprivileged children reach their full potential – physical, mental as well as emotional.</p><div className="footer-brand__social"><a href="#contact" aria-label="Share"><Share2 size={15} /></a><a href="#contact" aria-label="Visit our website"><Globe size={15} /></a></div></div><div><h3>Navigation</h3><a href="#top">Home</a><a href="#about">About</a><a href="#causes">Causes</a><a href="#donate">Donate</a></div><div><h3>Other Links</h3><a href="#programs">Programs</a><a href="#blog">Blogs</a><a href="#faq-title">Privacy policy</a><a href="#faq-title">Terms and Conditions</a></div><div><h3>Social Connect</h3><a href="#contact"><Linkedin size={15} /> Linkedin</a><a href="#contact"><Instagram size={15} /> Instagram</a><a href="#contact"><X size={15} /> X</a></div><div><h3>Contact us</h3><a href="tel:+919730627087"><Phone size={15} /> +91 9730627087</a><a href="mailto:info@pccmec.org"><Mail size={15} /> info@pccmec.org</a><p><MapPin size={15} /> House 14, Road 2, Sonadanga, Khulna 9100, Bangladesh</p></div></div>
+        <div className="shell footer-bottom"><p>© 2026 PCC &amp; MEC. All rights reserved.</p></div>
       </footer>
     </div>
   );

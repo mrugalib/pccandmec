@@ -126,7 +126,7 @@ export default function ProjectDetail() {
           </div>
         </section>
       </main>
-      <footer className="detail-footer"><div className="detail-shell"><span>Careon</span><Link href="/">Return to the homepage <MoveRight size={15} /></Link></div></footer>
+      <footer className="detail-footer"><div className="detail-shell"><span>PCC &amp; MEC</span><Link href="/">Return to the homepage <MoveRight size={15} /></Link></div></footer>
     </div>
   );
 }

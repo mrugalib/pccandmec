@@ -69,7 +69,7 @@ export default function DetailPage({ item, label }: { item: CareonDetail; label:
           <div className="detail-shell detail-donation__inner"><div><p className="detail-kicker">Take part</p><h2 id="detail-donation-title">Help this {label.toLowerCase()} move one step closer.</h2></div><div><DonationCheckoutButton className="detail-donation__button" campaign={item.title}>Register your support <MoveRight size={17} /></DonationCheckoutButton></div></div>
         </section>
       </main>
-      <footer className="detail-footer"><div className="detail-shell"><span>Careon</span><Link href="/">Return to the homepage <MoveRight size={15} /></Link></div></footer>
+      <footer className="detail-footer"><div className="detail-shell"><span>PCC &amp; MEC</span><Link href="/">Return to the homepage <MoveRight size={15} /></Link></div></footer>
     </div>
   );
 }

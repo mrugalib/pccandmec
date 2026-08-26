@@ -18,7 +18,7 @@ const suggestedAmounts = [25, 50, 100, 250];
 export function DonationCheckoutButton({
   children,
   className = "",
-  campaign = "Careon community fund",
+  campaign = "PCC & MEC community fund",
 }: {
   children: ReactNode;
   className?: string;
@@ -66,11 +66,11 @@ export function DonationCheckoutButton({
             <p className="checkout-eyebrow">Donation flow complete</p>
             <DialogTitle>Thank you{confirmedName ? `, ${confirmedName}` : ""}.</DialogTitle>
             <DialogDescription>Your simulated ${amount.toLocaleString()} donation to {campaign} has been noted. No payment was collected.</DialogDescription>
-            <button className="checkout-primary" type="button" onClick={() => setOpen(false)}>Return to Careon <MoveRight size={17} /></button>
+            <button className="checkout-primary" type="button" onClick={() => setOpen(false)}>Return to PCC &amp; MEC <MoveRight size={17} /></button>
           </div>
         ) : (
           <div className="checkout-form-wrap">
-            <div className="checkout-topline"><span>Careon donation</span><span><LockKeyhole size={13} /> Simulated checkout</span></div>
+            <div className="checkout-topline"><span>PCC &amp; MEC donation</span><span><LockKeyhole size={13} /> Simulated checkout</span></div>
             <DialogTitle>Back a practical mission.</DialogTitle>
             <DialogDescription>Select an amount and share your details. This demonstration does not process or store a payment.</DialogDescription>
             <form onSubmit={submitDonation} className="checkout-form">
