@@ -57,9 +57,9 @@ export default function SectorsShowcase({ items = projects }: { items?: ProjectC
               <p className="max-w-sm text-sm leading-relaxed text-[#b3b3b3]">
                 Every project below is a real program we've run in the field — click through for the full case study.
               </p>
-              <a href="#contact" className="inline-flex w-fit items-center gap-2 rounded-full border border-white px-5 py-3 text-xs font-medium uppercase tracking-[0.08em] text-white transition-colors duration-200 hover:bg-primary hover:border-primary">
-                Partner with us
-                <span aria-hidden="true">&#8599;</span>
+              <a href="#contact" className="inline-flex w-fit items-center gap-2 rounded-full border border-white px-5 py-3 text-xs font-medium uppercase tracking-[0.08em] transition-colors duration-200 hover:bg-primary hover:border-primary">
+                <span className="text-white">Partner with us</span>
+                <span aria-hidden="true" className="text-white">&#8599;</span>
               </a>
             </div>
           </div>
